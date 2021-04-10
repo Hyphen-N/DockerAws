@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+
+service:
+  - docker
+
+before_install:
+  - docker build -t Hypen-N/dockerAWS -f dockerfile.dev .
+
+script:
+  - docker run -e CI=true Hypen-N/dockerAWS npm run test
+
