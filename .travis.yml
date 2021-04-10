@@ -10,3 +10,14 @@ before_install:
 script:
   - docker run -e CI=true hypenn/dockeraws npm run test
 
+deploy:
+  provider: elasticbeanstalk
+  region: 'ap-south-1'
+  app: 'docker'
+  env: 'docker-env'
+  bucket_name: 'elasticbeanstalk-ap-south-1-202217549142'
+  bucket_path: 'docker'
+  on:
+    branch: main
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
