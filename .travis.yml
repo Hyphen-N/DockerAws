@@ -5,8 +5,8 @@ service:
   - docker
 
 before_install:
-  - docker build -t Hypen-N/dockerAWS -f dockerfile.dev .
+  - docker build -t hypenn/dockeraws -f dockerfile.dev .
 
 script:
-  - docker run -e CI=true Hypen-N/dockerAWS npm run test
+  - docker run -e CI=true hypenn/dockeraws npm run test
 
